@@ -1,369 +1,369 @@
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [0.00 2.00 1.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [0.00 2.00 1.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [0.00 2.00 1.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [0.00 2.00 1.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [0.00 2.00 1.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [0.00 2.00 1.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [0.00 2.00 1.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [1.00 0.00 2.00]
 Built-in int: <class 'int'>
 a._tensor.permute is callable: True
-Order tensor: 
+Order tensor:
 [0.00 2.00 1.00]
 Epoch 83, loss 28.190265817558245, train accuracy: 64.22%
 Validation accuracy: 69.00%
