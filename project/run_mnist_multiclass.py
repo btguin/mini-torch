@@ -42,7 +42,11 @@ class Conv2d(minitorch.Module):
 
     def forward(self, input):
         # TODO: Implement for Task 4.5.
-        raise NotImplementedError("Need to implement for Task 4.5")
+        # Applies a 2D convolution operation on the input using the layer's weights.
+        # Adds the bias to each output channel after convolution.
+        # Utilizes the Conv2dFun.apply method from minitorch for the convolution operation.
+        return minitorch.Conv2dFun.apply(input, self.weights.value) + self.bias.value
+
 
 
 class Network(minitorch.Module):
@@ -68,12 +72,36 @@ class Network(minitorch.Module):
         self.out = None
 
         # TODO: Implement for Task 4.5.
-        raise NotImplementedError("Need to implement for Task 4.5")
+        # Initializes the first convolutional layer (conv1) with 1 input channel (grayscale images), 4 output channels, and a 3x3 kernel size.
+        # Initializes the second convolutional layer (conv2) with 4 input channels (from conv1), 8 output channels, and a 3x3 kernel size.
+        # Initializes the first linear (fully connected) layer (linear1) that maps the flattened convolutional output of size 392 to 64 neurons.
+        # Initializes the second linear layer (linear2) that maps from 64 neurons to C (10) classes.
+        self.conv1 = Conv2d(1, 4, 3, 3)
+        self.conv2 = Conv2d(4, 8, 3, 3)
+        self.linear1 = Linear(392, 64)
+        self.linear2 = Linear(64, C)
 
     def forward(self, x):
         # TODO: Implement for Task 4.5.
-        raise NotImplementedError("Need to implement for Task 4.5")
-
+        # Passes the input through the first convolutional layer (conv1) followed by a ReLU activation.
+        # The result is stored in self.mid for potential visualization or analysis.
+        # Passes the output of conv1 through the second convolutional layer (conv2) followed by ReLU.
+        # The result is stored in self.out.
+        # Applies a 2D max pooling operation with a 4x4 kernel to reduce the spatial dimensions.
+        # Flattens the pooled output to a vector of size 392 for each batch.
+        # Passes the flattened vector through the first linear layer (linear1) followed by ReLU activation.
+        # Applies dropout with a 25% rate to prevent overfitting.
+        # Passes the result through the second linear layer (linear2) to obtain logits for each class.
+        # Applies logsoftmax to convert logits into log-probabilities for classification.
+        self.mid = self.conv1(x).relu()
+        self.out = self.conv2(self.mid).relu()
+        p_out = minitorch.nn.maxpool2d(self.out, (4, 4))
+        b_size = p_out.shape[0]
+        f_out = p_out.view(b_size, 392)
+        h_out = self.linear1(f_out).relu()
+        d_out = minitorch.dropout(h_out, 0.25)
+        l_out = self.linear2(d_out)
+        return minitorch.logsoftmax(l_out, dim=1)
 
 def make_mnist(start, stop):
     ys = []

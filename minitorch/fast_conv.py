@@ -7,8 +7,6 @@ from numba import njit as _njit
 from .autodiff import Context
 from .tensor import Tensor
 from .tensor_data import (
-    MAX_DIMS,
-    Index,
     Shape,
     Strides,
     Storage,
@@ -22,6 +20,7 @@ Fn = TypeVar("Fn")
 
 
 def njit(fn: Fn, **kwargs: Any) -> Fn:
+    """Wrapper for numba njit decorator with inline always enabled."""
     return _njit(inline="always", **kwargs)(fn)  # type: ignore
 
 
@@ -91,7 +90,26 @@ def _tensor_conv1d(
     s2 = weight_strides
 
     # TODO: Implement for Task 4.1.
-    raise NotImplementedError("Need to implement for Task 4.1")
+    for out_pos in prange(out_size):
+        out_idx = np.zeros(3, dtype=np.int32)
+        to_index(out_pos, out_shape, out_idx)
+        i = out_idx[0]  # batch index
+        oc = out_idx[1]  # out_channel
+        x = out_idx[2]  # width position
+
+        val = 0.0
+        for ic in range(in_channels):
+            for k in range(kw):
+                if reverse:
+                    in_x = x - k
+                else:
+                    in_x = x + k
+                if 0 <= in_x < width:
+                    in_pos = i * s1[0] + ic * s1[1] + in_x * s1[2]
+                    w_pos = oc * s2[0] + ic * s2[1] + k * s2[2]
+                    val += input[in_pos] * weight[w_pos]
+
+        out[out_pos] = val
 
 
 tensor_conv1d = njit(_tensor_conv1d, parallel=True)
@@ -127,6 +145,7 @@ class Conv1dFun(Function):
 
     @staticmethod
     def backward(ctx: Context, grad_output: Tensor) -> Tuple[Tensor, Tensor]:
+        """Compute gradients for 1D Convolution backward pass."""
         input, weight = ctx.saved_values
         batch, in_channels, w = input.shape
         out_channels, in_channels, kw = weight.shape
@@ -220,7 +239,42 @@ def _tensor_conv2d(
     s20, s21, s22, s23 = s2[0], s2[1], s2[2], s2[3]
 
     # TODO: Implement for Task 4.2.
-    raise NotImplementedError("Need to implement for Task 4.2")
+    for out_pos in prange(out_size):
+        out_idx = np.zeros(4, dtype=np.int32)
+        to_index(out_pos, out_shape, out_idx)
+        i = out_idx[0]  # batch index
+        oc = out_idx[1]  # out_channel
+        oh = out_idx[2]  # output height
+        ow = out_idx[3]  # output width
+
+        val = 0.0
+        # Loop over input channels
+        for ic in range(in_channels):
+            # Loop over kernel height
+            for r in range(kh):
+                if reverse:
+                    in_h = oh - r
+                else:
+                    in_h = oh + r
+                # Skip if outside input height
+                if in_h < 0 or in_h >= height:
+                    continue
+                # Loop over kernel width
+                for c in range(kw):
+                    if reverse:
+                        in_w = ow - c
+                    else:
+                        in_w = ow + c
+                    # Skip if outside input width
+                    if in_w < 0 or in_w >= width:
+                        continue
+
+                    # Compute positions using the given stride variables
+                    in_pos = i * s10 + ic * s11 + in_h * s12 + in_w * s13
+                    w_pos = oc * s20 + ic * s21 + r * s22 + c * s23
+                    val += input[in_pos] * weight[w_pos]
+
+        out[out_pos] = val
 
 
 tensor_conv2d = njit(_tensor_conv2d, parallel=True, fastmath=True)
@@ -254,6 +308,7 @@ class Conv2dFun(Function):
 
     @staticmethod
     def backward(ctx: Context, grad_output: Tensor) -> Tuple[Tensor, Tensor]:
+        """Compute gradients for 2D Convolution backward pass."""
         input, weight = ctx.saved_values
         batch, in_channels, h, w = input.shape
         out_channels, in_channels, kh, kw = weight.shape
