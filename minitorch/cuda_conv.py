@@ -1,21 +1,88 @@
+# # Install necessary packages
+# !pip install numba
+
+# # Import necessary libraries
 # import numpy as np
-# from numba import cuda
+# from numba import cuda, float32
 # import math
 
+# # ------------------- CPU Implementations -------------------
+
+# def cpu_conv1d(input_np, weight_np, reverse=False):
+#     """
+#     1D Convolution on CPU using NumPy.
+
+#     Args:
+#         input_np (np.ndarray): Input array of shape (batch, in_channels, width).
+#         weight_np (np.ndarray): Weight array of shape (out_channels, in_channels, k_width).
+#         reverse (bool): If True, reverse the kernel.
+
+#     Returns:
+#         np.ndarray: Output array of shape (batch, out_channels, width).
+#     """
+#     batch, in_channels, width = input_np.shape
+#     out_channels, in_channels2, k_width = weight_np.shape
+#     assert in_channels == in_channels2
+
+#     # No weight flipping - just indexing
+#     output = np.zeros((batch, out_channels, width), dtype=np.float32)
+#     for b in range(batch):
+#         for oc in range(out_channels):
+#             for x in range(width):
+#                 val = 0.0
+#                 for ic in range(in_channels):
+#                     for k in range(k_width):
+#                         in_x = x - k if reverse else x + k
+#                         if 0 <= in_x < width:
+#                             val += input_np[b, ic, in_x] * weight_np[oc, ic, k]
+#                 output[b, oc, x] = val
+#     return output
+
+# def cpu_conv2d(input_np, weight_np, reverse=False):
+#     """
+#     2D Convolution on CPU using NumPy.
+
+#     Args:
+#         input_np (np.ndarray): Input array of shape (batch, in_channels, height, width).
+#         weight_np (np.ndarray): Weight array of shape (out_channels, in_channels, k_height, k_width).
+#         reverse (bool): If True, reverse the kernel.
+
+#     Returns:
+#         np.ndarray: Output array of shape (batch, out_channels, height, width).
+#     """
+#     batch, in_channels, height, width = input_np.shape
+#     out_channels, in_channels2, k_height, k_width = weight_np.shape
+#     assert in_channels == in_channels2
+
+#     output = np.zeros((batch, out_channels, height, width), dtype=np.float32)
+#     for b in range(batch):
+#         for oc in range(out_channels):
+#             for h in range(height):
+#                 for w_idx in range(width):
+#                     val = 0.0
+#                     for ic in range(in_channels):
+#                         for kh in range(k_height):
+#                             in_h = h - kh if reverse else h + kh
+#                             if in_h < 0 or in_h >= height:
+#                                 continue
+#                             for kw in range(k_width):
+#                                 in_w = w_idx - kw if reverse else w_idx + kw
+#                                 if in_w < 0 or in_w >= width:
+#                                     continue
+#                                 val += input_np[b, ic, in_h, in_w] * weight_np[oc, ic, kh, kw]
+#                     output[b, oc, h, w_idx] = val
+#     return output
 
 # # ------------------- CUDA Implementations -------------------
 
 # # Define CUDA kernels for conv1d and conv2d
 
-
 # @cuda.jit
-# def conv1d_kernel(
-#     input, weight, output, reverse, batch, in_channels, width, out_channels, k_width
-# ):
-#     """CUDA Kernel for 1D Convolution.
+# def conv1d_kernel(input, weight, output, reverse, batch, in_channels, width, out_channels, k_width):
+#     """
+#     CUDA Kernel for 1D Convolution.
 
 #     Args:
-#     ----
 #         input (float32[:,:,:]): Input array on device.
 #         weight (float32[:,:,:]): Weight array on device.
 #         output (float32[:,:,:]): Output array on device.
@@ -25,7 +92,6 @@
 #         width (int): Width of the input.
 #         out_channels (int): Number of output channels.
 #         k_width (int): Kernel width.
-
 #     """
 #     b, oc, x = cuda.grid(3)  # 3D grid
 
@@ -41,25 +107,12 @@
 #                     val += input[b, ic, in_x] * weight[oc, ic, k]
 #         output[b, oc, x] = val
 
-
 # @cuda.jit
-# def conv2d_kernel(
-#     input,
-#     weight,
-#     output,
-#     reverse,
-#     batch,
-#     in_channels,
-#     height,
-#     width,
-#     out_channels,
-#     k_height,
-#     k_width,
-# ):
-#     """CUDA Kernel for 2D Convolution.
+# def conv2d_kernel(input, weight, output, reverse, batch, in_channels, height, width, out_channels, k_height, k_width):
+#     """
+#     CUDA Kernel for 2D Convolution.
 
 #     Args:
-#     ----
 #         input (float32[:,:,:,:]): Input array on device.
 #         weight (float32[:,:,:,:]): Weight array on device.
 #         output (float32[:,:,:,:]): Output array on device.
@@ -71,7 +124,6 @@
 #         out_channels (int): Number of output channels.
 #         k_height (int): Kernel height.
 #         k_width (int): Kernel width.
-
 #     """
 #     b, oc, idx = cuda.grid(3)  # Now we only use 3D indexing
 #     if b < batch and oc < out_channels and idx < (height * width):
@@ -92,20 +144,17 @@
 #                     val += input[b, ic, in_h, in_w] * weight[oc, ic, kh, kw]
 #         output[b, oc, h, w] = val
 
-
 # def cuda_conv1d(input_np, weight_np, reverse=False):
-#     """1D Convolution on GPU using CUDA.
+#     """
+#     1D Convolution on GPU using CUDA.
 
 #     Args:
-#     ----
 #         input_np (np.ndarray): Input array of shape (batch, in_channels, width).
 #         weight_np (np.ndarray): Weight array of shape (out_channels, in_channels, k_width).
 #         reverse (bool): If True, reverse the kernel.
 
 #     Returns:
-#     -------
 #         np.ndarray: Output array of shape (batch, out_channels, width).
-
 #     """
 #     batch, in_channels, width = input_np.shape
 #     out_channels, in_channels2, k_width = weight_np.shape
@@ -126,37 +175,24 @@
 #     blocks_per_grid = (blocks_per_grid_x, blocks_per_grid_y, blocks_per_grid_z)
 
 #     # Launch kernel
-#     conv1d_kernel[blocks_per_grid, threads_per_block](
-#         input_gpu,
-#         weight_gpu,
-#         output_gpu,
-#         int(reverse),
-#         batch,
-#         in_channels,
-#         width,
-#         out_channels,
-#         k_width,
-#     )
+#     conv1d_kernel[blocks_per_grid, threads_per_block](input_gpu, weight_gpu, output_gpu, int(reverse), batch, in_channels, width, out_channels, k_width)
 
 #     # Copy result back to CPU
 #     output_gpu.copy_to_host(output_np)
 
 #     return output_np
 
-
 # def cuda_conv2d(input_np, weight_np, reverse=False):
-#     """2D Convolution on GPU using CUDA.
+#     """
+#     2D Convolution on GPU using CUDA.
 
 #     Args:
-#     ----
 #         input_np (np.ndarray): Input array of shape (batch, in_channels, height, width).
 #         weight_np (np.ndarray): Weight array of shape (out_channels, in_channels, k_height, k_width).
 #         reverse (bool): If True, reverse the kernel.
 
 #     Returns:
-#     -------
 #         np.ndarray: Output array of shape (batch, out_channels, height, width).
-
 #     """
 #     batch, in_channels, height, width = input_np.shape
 #     out_channels, in_channels2, k_height, k_width = weight_np.shape
@@ -188,15 +224,13 @@
 #         width,
 #         out_channels,
 #         k_height,
-#         k_width,
+#         k_width
 #     )
 
 #     output_gpu.copy_to_host(output_np)
 #     return output_np
 
-
 # # ------------------- Testing Functions -------------------
-
 
 # def test_conv1d():
 #     print("Testing 1D Convolution...")
@@ -219,7 +253,6 @@
 #     difference = np.max(np.abs(cpu_out_reverse - gpu_out))
 #     print(f"Conv1D Test 2 (Reverse) - Max difference: {difference}")
 
-
 # def test_conv2d():
 #     print("\nTesting 2D Convolution...")
 
@@ -241,12 +274,12 @@
 #     difference = np.max(np.abs(cpu_out_reverse - gpu_out))
 #     print(f"Conv2D Test 2 (Reverse) - Max difference: {difference}")
 
+# # ------------------- Run Tests -------------------
 
-# ------------------- Run Tests -------------------
-
-# Execute the tests
+# # Execute the tests
 # test_conv1d()
 # test_conv2d()
+
 
 # Output:
 
