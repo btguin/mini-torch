@@ -276,10 +276,6 @@ class Permute(Function):
     def forward(ctx: Context, a: Tensor, order: Tensor) -> Tensor:
         """Compute the forward pass for permutation."""
         # ASSIGN2.3
-        print(f"Built-in int: {int}")
-        print(f"a._tensor.permute is callable: {callable(a._tensor.permute)}")
-        print(f"Order tensor: {order}")
-
         ctx.save_for_backward(order)
         return a._new(a._tensor.permute(*[int(order[i]) for i in range(order.size)]))
         # END ASSIGN2.3
