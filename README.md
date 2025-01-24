@@ -1,6 +1,6 @@
-# MiniTorch Module 4
+# MiniTorch
 
-This codebase is part of the MiniTorch project, a DIY deep learning framework designed for educational purposes. Module 4 focuses on implementing convolutional neural networks (CNNs) with an emphasis on efficiency and utilizing Numba for just-in-time (JIT) compilation to achieve performance gains. Key components include:
+This codebase is part of the MiniTorch project, a deep learning framework that implements convolutional neural networks with and utilizies Numba for JIT compilation to achieve performance gains. Key components include:
 
 *   **Tensor Operations and Autodiff**: Core implementations for tensor manipulation, including broadcasting, mapping, zipping, and reductions. Automatic differentiation is supported for gradient-based optimization.
 *   **CUDA Support**: (Optional) Enables GPU acceleration using CUDA, particularly for computationally intensive operations like matrix multiplication and convolutions.
@@ -51,10 +51,19 @@ This codebase is part of the MiniTorch project, a DIY deep learning framework de
 
 To set up the environment for this project, you can use the provided `environment.yml` file with Conda:
 
-```bash
-conda env create -f environment.yml
-conda activate minitorch
+`conda env create -f environment.yml`
 
-The files that will be synced are:
+`conda activate minitorch`
 
-        minitorch/tensor_data.py minitorch/tensor_functions.py minitorch/tensor_ops.py minitorch/operators.py minitorch/scalar.py minitorch/scalar_functions.py minitorch/module.py minitorch/autodiff.py minitorch/module.py project/run_manual.py project/run_scalar.py project/run_tensor.py minitorch/operators.py minitorch/module.py minitorch/autodiff.py minitorch/tensor.py minitorch/datasets.py minitorch/testing.py minitorch/optim.py minitorch/tensor_ops.py minitorch/fast_ops.py minitorch/cuda_ops.py project/parallel_check.py tests/test_tensor_general.py
+Alternatively, you can install the dependencies using pip:
+
+`pip install -r requirements.txt`
+
+`pip install -r requirements.extra.txt`
+
+## Usage
+The project includes several entry points for running experiments and launching interactive interfaces:
+
+To launch the main Streamlit application:
+
+`python project/app.py`
