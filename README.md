@@ -1,6 +1,6 @@
 # MiniTorch
 
-This codebase is part of the MiniTorch project, a deep learning framework that implements convolutional neural networks with and utilizies Numba for JIT compilation to achieve performance gains. Key components include:
+MiniTorch is a deep learning framework that implements convolutional neural networks with and utilizies Numba for JIT compilation to achieve performance gains. Key components include:
 
 *   **Tensor Operations and Autodiff**: Core implementations for tensor manipulation, including broadcasting, mapping, zipping, and reductions. Automatic differentiation is supported for gradient-based optimization.
 *   **CUDA Support**: (Optional) Enables GPU acceleration using CUDA, particularly for computationally intensive operations like matrix multiplication and convolutions.
